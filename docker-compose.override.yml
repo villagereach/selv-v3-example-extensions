@@ -1,7 +1,7 @@
 version: "2"
 services:
 
-  selv-v3-example-extensions:
+  selv-v3-extensions-config:
     image: openlmis/dev:1
     volumes:
       - '.:/app'

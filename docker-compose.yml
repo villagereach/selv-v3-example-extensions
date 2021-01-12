@@ -1,8 +1,8 @@
 version: "2"
 services:
 
-  selv-v3-example-extensions:
-    image: openlmismz/selv-v3-example-extensions
+  selv-v3-extensions-config:
+    image: openlmismz/selv-v3-extensions-config
     volumes:
       - 'extensions:/extensions'
 

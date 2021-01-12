@@ -5,7 +5,7 @@ This example is a Docker image containing extensions of OpenLMIS services. It is
 ## Quick start
 1. Fork/clone this repository from GitHub.
  ```shell
- git clone https://github.com/villagereach/selv-v3-example-extensions.git
+ git clone https://github.com/villagereach/selv-v3-extensions-config.git
  ```
 2. Add an environment file called `.env` to the root folder of the project, with the required 
 project settings and credentials. For a starter environment file, you can use [this 
@@ -56,7 +56,7 @@ one](https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/setti
 The Reference Distribution is configured to use extension modules by defining a named volume that is common to the service and partner image. 
 ```
 volumes:
-  example-extensions:
+  extensions-config:
     external: false
 ```
 The shared volume contains extension jars and extension point configuration. The role of this image is to copy them at start-up, so they may be read by the service.
@@ -83,8 +83,8 @@ Default class needs to have Component annotation with the value of its id:
 1. Create a new extension module, which contains code that overrides extension point, for example: [selv-v3-fulfillment-extension](https://github.com/villagereach/selv-v3-fulfillment-extension).
 2. Annotate your implementation of the extension point with @Component annotation with the value of its id like [here](https://github.com/OpenLMIS/openlmis-fulfillment/blob/master/src/main/java/org/openlmis/fulfillment/domain/Base36EncodedOrderNumberGenerator.java#L26).
 3. Create an appropriate CI job ([example](http://build.openlmis.org/job/OpenLMIS-stockmanagement-validator-extension/)). Build the job to publish the repository to Maven.
-4. Create a new extensions module which collects extension points for all services. The [selv-v3-example-extensions](https://github.com/villagereach/selv-v3-example-extensions) is an example of such a module.
-5. Modify [extensions.properties](https://github.com/villagereach/selv-v3-example-extensions/blob/master/extensions.properties#L2) with the name of the extended component 
-6. Add the extension to the "dependencies" configuration in [build.gradle](https://github.com/villagereach/selv-v3-example-extensions/blob/master/build.gradle#L14).
-7. Create a dedicated docker-compose.yml file with the example-extensions service. See the example: [docker-compose.selv-v3-fulfillment-extension.yml](https://github.com/villagereach/selv-v3-ref-distro/blob/master/docker-compose.selv-v3-fulfillment-extension.yml).
+4. Create a new extensions module which collects extension points for all services. The [selv-v3-extensions-config](https://github.com/villagereach/selv-v3-extensions-config) is an example of such a module.
+5. Modify [extensions.properties](https://github.com/villagereach/selv-v3-extensions-config/blob/master/extensions.properties#L2) with the name of the extended component 
+6. Add the extension to the "dependencies" configuration in [build.gradle](https://github.com/villagereach/selv-v3-extensions-config/blob/master/build.gradle#L14).
+7. Create a dedicated docker-compose.yml file with the extensions-config service. See the example: [docker-compose.selv-v3-fulfillment-extension.yml](https://github.com/villagereach/selv-v3-ref-distro/blob/master/docker-compose.selv-v3-fulfillment-extension.yml).
 7. Add the extensions module as [volume](https://github.com/villagereach/selv-v3-ref-distro/blob/master/docker-compose.selv-v3-fulfillment-extension.yml) to the extended service in the docker-compose.yml file.

@@ -12,4 +12,4 @@ services:
 
   image:
     build: .
-    image: openlmismz/selv-v3-example-extensions
+    image: openlmismz/selv-v3-extensions-config
