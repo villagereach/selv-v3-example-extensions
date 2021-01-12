@@ -1,0 +1,11 @@
+version: "2"
+services:
+
+  selv-v3-example-extensions:
+    image: openlmismz/selv-v3-example-extensions
+    volumes:
+      - 'extensions:/extensions'
+
+volumes:
+  extensions:
+    external: false
