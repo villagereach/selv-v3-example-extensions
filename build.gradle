@@ -11,7 +11,7 @@ configurations {
 }
 
 dependencies {
-    extension "org.openlmis:selv-v3-fulfillment-extension:0.0.1-SNAPSHOT"
+    extension "mz.org.selv:selv-v3-fulfillment-extension:0.0.1-SNAPSHOT"
 }
 
 task copyExtensions(type: Copy) {
