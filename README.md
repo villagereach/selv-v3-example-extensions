@@ -11,7 +11,7 @@ This example is a Docker image containing extensions of OpenLMIS services. It is
 project settings and credentials. For a starter environment file, you can use [this 
 one](https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/settings-sample.env). eg:
  ```shell
- curl -o .env -L https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/settings-sample.env
+ curl -o 2.env -L https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/settings-sample.env
  ```
 
 3. Start up the application.
@@ -25,7 +25,7 @@ one](https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/setti
 ```
  logging.level.org.springframework.beans.factory=DEBUG
  logging.level.org.springframework.core.io.support=DEBUG
- logging.level.org.springframework.context.annotation=DEBU
+ logging.level.org.springframework.context.annotation=DEBUG
 ```
 
 
@@ -42,13 +42,11 @@ one](https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/setti
 ## <a name="extensionpoints">Adding extension points</a>
 1. Add extension to the "dependencies" configuration in build.gradle:
 ```
-    extension "org.openlmis:selv-v3-fulfillment-extension:0.0.1-SNAPSHOT"
+    extension "mz.org.selv:selv-v3-fulfillment-extension:1.0.0"
 ```
 2. Modify extensions.properties with name of the extended component.
 ```
-    AdjustmentReasonValidator=NoneValidator
-    FreeTextValidator=ReasonFreeTextValidator
-    UnpackKitValidator=NoKitsValidator
+    OrderNumberGenerator=SequenceNumberGenerator
 ```
 
 
